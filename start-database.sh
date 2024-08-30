@@ -27,12 +27,28 @@ if [ "$(docker ps -q -a -f name=$DB_CONTAINER_NAME)" ]; then
   exit 0
 fi
 
+if [ ! -f .env ]; then
+  if [ -f .env.example ]; then
+    read -p ".env 文件不存在。是否自动复制 .env.example 文件作为 .env 文件？ [y/N]: " -r REPLY
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+      cp .env.example .env
+      echo "已自动复制 .env.example 文件作为 .env 文件。请检查并设置 DATABASE_URL 环境变量。"
+    else
+      echo "请创建一个 .env 文件并设置 DATABASE_URL 环境变量。"
+      exit 1
+    fi
+  else
+    echo ".env 文件不存在且 .env.example 文件也不存在。请创建一个 .env 文件并设置 DATABASE_URL 环境变量。"
+    exit 1
+  fi
+fi
+
 # import env variables from .env
 set -a
 source .env
 
 DB_PASSWORD=$(echo "$DATABASE_URL" | awk -F':' '{print $3}' | awk -F'@' '{print $1}')
-DB_PORT=$(echo "$DATABASE_URL" | awk -F':' '{print $4}' | awk -F'\/' '{print $1}')
+DB_PORT=$(echo "$DATABASE_URL" | awk -F':' '{print $4}' | awk -F'/' '{print $1}') # resolve awk: warning: escape sequence \/' treated as plain /
 
 if [ "$DB_PASSWORD" = "password" ]; then
   echo "You are using the default database password"
