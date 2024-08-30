@@ -1,18 +1,10 @@
-import {
-  Command,
-  Languages,
-  Loader,
-  LucideIcon,
-  LucideProps,
-  Moon,
-  Sun,
-} from "lucide-react";
+import { Command, Languages, Loader, LucideIcon, LucideProps, Moon, Sun } from "lucide-react"
 
-export type IconKeys = keyof typeof icons;
+export type IconKeys = keyof typeof icons
 
 type IconsType = {
-  [key in IconKeys]: React.ElementType;
-};
+  [key in IconKeys]: React.ElementType
+}
 
 const icons = {
   logo: Command,
@@ -54,6 +46,6 @@ const icons = {
       ></path>
     </svg>
   ),
-};
-export type Icon = LucideIcon;
-export const Icons: IconsType = icons;
+}
+export type Icon = LucideIcon
+export const Icons: IconsType = icons

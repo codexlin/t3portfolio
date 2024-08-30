@@ -1,5 +1,5 @@
-import { env } from "@/env";
-import { SiteConfig } from "@/types";
+import { env } from "@/env"
+import { SiteConfig } from "@/types"
 
 export const siteConfig: SiteConfig = {
   name: "CodexLin",
@@ -15,4 +15,4 @@ export const siteConfig: SiteConfig = {
     github: "https://github.com/codexlin",
   },
   //   ogImage: `${env.NEXT_PUBLIC_APP_URL}/og.jpg`,
-};
+}
