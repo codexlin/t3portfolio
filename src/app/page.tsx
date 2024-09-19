@@ -1,4 +1,5 @@
 import { LatestPost } from "@/app/_components/post"
+import Background from "@/components/background"
 import { Icons } from "@/components/icons"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { siteConfig } from "@/config/site"
@@ -12,7 +13,7 @@ export default async function Home() {
   return (
     <HydrateClient>
       <main className="flex min-h-screen items-center justify-center">
-        <div className="absolute left-[50%] top-[50%] z-[-1] h-[400px] w-[590px] translate-x-[-50%] translate-y-[-50%] rounded-[100%] bg-[#e626fd] blur-[90px]"></div>
+        <Background />
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
           <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
             <span className="text-[hsl(280,100%,70%)]"> {siteConfig.name}</span>
