@@ -4,9 +4,6 @@ const config = {
   singleQuote: false,
   printWidth: 100,
   tabWidth: 2,
-  plugins: [
-    "@ianvs/prettier-plugin-sort-imports",
-    "prettier-plugin-tailwindcss",
-  ],
-};
-export default config;
+  plugins: ["@ianvs/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
+}
+export default config
